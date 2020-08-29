@@ -67,6 +67,10 @@
 #include "ui_view_wav.hpp"
 #include "ui_whipcalc.hpp"
 
+// new debrujin app
+//#include "ui_debrujin.hpp"
+#include "ui_newapp.hpp"
+
 #include "acars_app.hpp"
 #include "ais_app.hpp"
 #include "analog_audio_app.hpp"
@@ -482,6 +486,9 @@ TransmittersMenuView::TransmittersMenuView(NavigationView& nav) {
 		{ "TEDI/LCR",		ui::Color::yellow(), 	&bitmap_icon_lcr,		[&nav](){ nav.push<LCRView>(); } },
 		{ "TouchTune",		ui::Color::yellow(),	&bitmap_icon_remote,	[&nav](){ nav.push<TouchTunesView>(); } },
 		//{ "Remote",			ui::Color::dark_grey(),	&bitmap_icon_remote,	[&nav](){ nav.push<RemoteView>(); } },
+		// new entry for debrujin app:
+		//{ "DeBrujin",		ui::Color::orange(),	&bitmap_icon_keyfob,	[&nav](){ nav.push<AboutView2>(); } },
+		{ "NewApp",			ui::Color::orange(),	&bitmap_icon_keyfob,	[&nav](){ nav.push<NewAppView>(); } },
 	});
 }
 
