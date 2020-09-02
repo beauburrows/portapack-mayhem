@@ -29,10 +29,10 @@
 
 namespace encoders {
 	
-	#define ENC_TYPES_COUNT 14
-	#define OOK_SAMPLERATE	2280000U
+	#define ENC_TYPES_COUNT 15
+	#define OOK_SAMPLERATE	2280000U // was 2280000U
 	
-	#define ENCODER_UM3750	8
+	#define ENCODER_UM3750	9
 	
 	size_t make_bitstream(std::string& fragments);
 	void bitstream_append(size_t& bitstream_length, uint32_t bit_count, uint32_t bits);
@@ -54,6 +54,33 @@ namespace encoders {
 
 	// Warning ! If this is changed, make sure that ENCODER_UM3750 is still valid !
 	constexpr encoder_def_t encoder_defs[ENC_TYPES_COUNT] = {
+		// adding linear 1993 encoder:
+		// LIN-93
+		
+		{
+			"LIN-93",
+			"01", "01",
+			1024, 128, // was 3072, 384,
+			{ "10000000", "11110000" },
+			8,	"AAAAAAAA",
+			"10000000000000000000000000000000",
+			260000,	1,// was 455000, 4
+			5	// ?
+		},
+		
+		/*
+		{
+			"LIN-93",
+			"01", "01",
+			128, 16,
+			{ "10000000", "11110000" },
+			8,	"AAAAAAAA",
+			"",
+			32000,	4,
+			1
+		},
+		*/
+
 		// PT2260-R2
 		{
 			"2260-R2",

@@ -33,8 +33,13 @@ private:
         { { 1 * 8, 0 }, "Work in progress...", Color::light_grey() }
     };
     
+    Button buttonTx {
+        { 60, 150, 120, 32 },
+        "db tx"
+    };
+
     Button button {
-        { 60, 64, 120, 32 },
+        { 60, 64, 120, 16 },
         "Exit"
     };
 };

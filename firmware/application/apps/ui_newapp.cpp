@@ -22,8 +22,13 @@ NewAppView::NewAppView(
 ) {
 	add_children({
 		&labels,
-		&button
+		&button,
+		&buttonTx
 	});
+
+	buttonTx.on_select = [this, &nav](Button&) {
+		nav.pop();
+	};
 	
 	button.on_select = [this, &nav](Button&) {
 		nav.pop();
