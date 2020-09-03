@@ -29,10 +29,10 @@
 
 namespace encoders {
 	
-	#define ENC_TYPES_COUNT 15
+	#define ENC_TYPES_COUNT 16
 	#define OOK_SAMPLERATE	2280000U // was 2280000U
 	
-	#define ENCODER_UM3750	9
+	#define ENCODER_UM3750	10
 	
 	size_t make_bitstream(std::string& fragments);
 	void bitstream_append(size_t& bitstream_length, uint32_t bit_count, uint32_t bits);
@@ -66,6 +66,19 @@ namespace encoders {
 			"10000000000000000000000000000000",
 			260000,	1,// was 455000, 4
 			5	// ?
+		},
+
+		{
+			// on is 	000000000101010100110011
+			// off is 	000000000101010100111100 (last bit is not possible to set)
+			"OOK-LIT",
+			"01", "01",
+			128, 32,
+			{ "1000", "1110" },
+			24,	"SAAAAAAAAAAAAAAAAAAAADDDD",
+			"10000000000000000000000000000000",
+			175000,	4,
+			8	// was 10
 		},
 		
 		/*
